@@ -1,0 +1,33 @@
+<div class="toolbar" role="banner">
+    <input type="text" placeholder="Search" class="search-bar">
+  <div class="toolbar-right-part">
+    <mat-form-field class="language-selector">
+      <mat-label>{{currentLanguage}}</mat-label>
+      <mat-select>
+        <!--<mat-option *ngFor="let food of foods" [value]="food.value">
+          {{food.viewValue}}
+        </mat-option>-->
+        <mat-option [value]="currentLanguage">
+          {{currentLanguage}}
+        </mat-option>
+        <mat-option value="Русский">
+          Русский
+        </mat-option>
+        <mat-option value="Español">
+          Español
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
+
+
+    <div class="toolbar-buttons">
+      <button>REGISTER</button>
+      <button>LOG IN</button>
+    </div>
+  </div>
+
+
+</div>
+
+
+

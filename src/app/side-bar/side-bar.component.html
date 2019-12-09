@@ -1,0 +1,41 @@
+<!--<div *ngIf="displaySideBar" [@slideAnimation] class="side-bar&#45;&#45;body">
+  <ul style="top: 2.9%;position: relative;left: 0" >
+    <li *ngFor="let item of items" class="side-bar&#45;&#45;items">
+      <div class="side-bar&#45;&#45;item" routerLink="{{item.name}}">
+        <img [src]="item.icon">
+        <span >{{item.name}}</span>
+        <div class="side-bar&#45;&#45;item&#45;&#45;values">
+          <span *ngFor="let itemValue of item.values" class="side-bar&#45;&#45;item&#45;&#45;value">{{itemValue}}</span>
+        </div>
+      </div>
+    </li>
+  </ul>
+  &lt;!&ndash;<router-outlet></router-outlet>&ndash;&gt;
+</div>-->
+<mat-drawer-container class="side-bar--body" [class.open] = "displaySideBar">
+
+  <mat-drawer #drawer class="example-sidenav" mode="side" >
+    <div class="example-sidenav-content">
+      <img class="side-bar--icon" src="https://img.icons8.com/windows/32/000000/grip-lines.png" (click)="openClose(drawer)">
+    </div>
+    <br>
+    <li *ngFor="let item of items" class="side-bar--items">
+      <div class="side-bar--item" routerLink="{{item.name}}">
+        <img [src]="item.icon">
+        <span >{{item.name}}</span>
+        <div class="side-bar--item--values">
+          <span *ngFor="let itemValue of item.values" class="side-bar--item--value">{{itemValue}}</span>
+        </div>
+      </div>
+    </li>
+    <p *ngIf="showFiller">Lorem, ipsum dolor sit amet consectetur.</p>
+    <button (click)="showFiller = !showFiller" mat-raised-button>
+      Toggle extra text
+    </button>
+  </mat-drawer>
+
+</mat-drawer-container>
+<div class="side-bar-openingIcon" *ngIf="!displaySideBar">
+  <img class="side-bar--icon" src="https://img.icons8.com/windows/32/000000/grip-lines.png" (click)="openClose(drawer)">
+</div>
+
