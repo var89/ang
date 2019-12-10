@@ -1,11 +1,10 @@
-<app-side-bar ></app-side-bar>
-
+<app-side-bar (sideBarStateChange)="accordCards($event, cards)"></app-side-bar>
 <div class="image-content">
   <h1>COURSES</h1>
 </div>
 <div class="main-image">
 </div>
-<div class="mat-cards">
+<div class="mat-cards" #cards>
   <mat-card *ngFor="let course of courses" class="course-card">
     <img [src]="course.imageURL">
     <a>user</a>

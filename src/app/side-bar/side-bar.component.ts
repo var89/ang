@@ -1,5 +1,5 @@
-import {Component, OnInit, Output} from '@angular/core';
-import {EventEmitter} from 'events';
+import {Component, EventEmitter, OnInit, Output} from '@angular/core';
+
 import {MatDrawer, MatDrawerContent} from '@angular/material';
 
 @Component({
@@ -23,8 +23,8 @@ export class SideBarComponent implements OnInit {
     }
   ];
   displaySideBar: boolean = false;
-  @Output() sideBarStateChange = new EventEmitter();
-  constructor() { }
+  @Output() sideBarStateChange = new EventEmitter<boolean>();
+  constructor() {}
 
   ngOnInit() {
   }
@@ -32,7 +32,7 @@ export class SideBarComponent implements OnInit {
   openClose(drawer: MatDrawer){
     drawer.toggle();
     this.displaySideBar=!this.displaySideBar;
-    this.sideBarStateChange.emit(this.displaySideBar ? "true" : "false");
+    this.sideBarStateChange.emit(this.displaySideBar);
   }
 
 }

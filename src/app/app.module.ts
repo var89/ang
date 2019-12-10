@@ -1,6 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-
+import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { SideBarComponent } from './side-bar/side-bar.component';
@@ -45,12 +45,16 @@ import {
 import { MainHeaderComponent } from './main-header/main-header.component';
 import {HttpClientModule} from '@angular/common/http';
 import { CatalogComponent } from './catalog/catalog.component';
+import { RegistrationFormComponent } from './registration-form/registration-form.component';
+import { LoginFormComponent } from './login-form/login-form.component';
 @NgModule({
   declarations: [
     AppComponent,
     SideBarComponent,
     MainHeaderComponent,
-    CatalogComponent
+    CatalogComponent,
+    RegistrationFormComponent,
+    LoginFormComponent
   ],
   imports: [
     BrowserModule,
@@ -92,7 +96,9 @@ import { CatalogComponent } from './catalog/catalog.component';
     MatToolbarModule,
     MatTooltipModule,
     MatTreeModule,
-    HttpClientModule
+    HttpClientModule,
+    FormsModule,
+    ReactiveFormsModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

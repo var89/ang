@@ -16,6 +16,9 @@ export class MainHeaderComponent implements OnInit {
     this.matIconRegistry.addSvgIcon("search-icon", this.domSanitizer.bypassSecurityTrustResourceUrl("../../assets/svg/search-icon.svg"));
     this.matIconRegistry.getNamedSvgIcon("search-icon");
   }
+  goToRegistration(){
+
+  }
 
 
 

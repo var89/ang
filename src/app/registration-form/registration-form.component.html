@@ -1,0 +1,54 @@
+<div class="content">
+
+
+  <mat-card class="mat-card-registration">
+
+    <mat-form-field>
+      <mat-label>Gender</mat-label>
+      <mat-select [(ngModel)]="newUser.gender">
+        <mat-option *ngFor="let gender of genders" [value]="gender" >
+          {{gender}}
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
+
+
+    <mat-form-field class="example-full-width">
+      <input matInput placeholder="Email" [formControl]="formControls.emailFormControl"
+             [errorStateMatcher]="matcher" [(ngModel)]="newUser.email">
+      <mat-error *ngIf="formControls.emailFormControl.hasError('email') && !formControls.emailFormControl.hasError('required')">
+        Please enter a valid email address
+      </mat-error>
+      <mat-error *ngIf="formControls.emailFormControl.hasError('required')">
+        Email is <strong>required</strong>
+      </mat-error>
+    </mat-form-field>
+
+    <mat-form-field class="example-full-width" >
+      <input  matInput placeholder="Username" [formControl]="formControls.usernameFormControl"
+              [errorStateMatcher]="matcher" [(ngModel)]="newUser.username">
+      <mat-error *ngIf="formControls.usernameFormControl.hasError('minlength') && !formControls.usernameFormControl.hasError('required')">
+        Password must be longer than 3
+      </mat-error>
+      <mat-error *ngIf="formControls.usernameFormControl.hasError('required')">
+        Password is <strong>required</strong>
+      </mat-error>
+    </mat-form-field>
+
+    <mat-form-field class="example-full-width" >
+      <input  type="password" matInput placeholder="Password" [formControl]="formControls.passwordFormControl"
+              [errorStateMatcher]="matcher" [(ngModel)]="newUser.password">
+      <mat-error *ngIf="formControls.passwordFormControl.hasError('minlength') && !formControls.passwordFormControl.hasError('required')">
+        Password must be longer than 4
+      </mat-error>
+      <mat-error *ngIf="formControls.passwordFormControl.hasError('required')">
+        Password is <strong>required</strong>
+      </mat-error>
+    </mat-form-field>
+
+    <button class="registration-button" mat-raised-button color="primary" (click)="registerUser()">Register</button>
+
+
+    <p>You selected:[{{newUser.id}}] {{newUser.gender}}, {{newUser.email}} {{newUser.username}} {{newUser.password}}</p>
+  </mat-card>
+</div>
